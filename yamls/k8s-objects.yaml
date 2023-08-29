@@ -1,4 +1,4 @@
-# Deployment -------> It consists of #Pod and #Replica-set both.....
+# Deployment -------> It consists of #Pod and #Replica-set both........
 
 apiVersion: apps/v1
 kind: Deployment
@@ -19,7 +19,7 @@ spec:
           - name: nginx-container
             image: nginx:latest
             ports:
-              - containerPort: 80
+              - containerPort: 80  #container port or the port to which the traffic will be forwarded to on the pods      
                 protocol: "TCP"
 
 
@@ -35,9 +35,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - targetPort: 80
-      port: 80
-      nodePort: 30000 
+    - targetPort: 80   #container port or the port to which the traffic will be forwarded to on the pods
+      port: 80  #service port or the port on which the service will listen ------> yaha service bole to actual application i.e. here is nginx
+      nodePort: 30000  #nodePort service Port
   selector:
     app: nginx    
 
@@ -52,8 +52,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - targetPort: 80
-      port: 80 
+    - targetPort: 80  #container port or the port to which the traffic will be forwarded to on the pods
+      port: 80  #service port or the port on which the service will listen ------> yaha service bole to actual application i.e. here is nginx   
   selector:
     app: nginx     
 
@@ -68,9 +68,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - targetPort: 80
-      port: 80
-      nodePort: 30000 
+    - targetPort: 80  #container port or the port to which the traffic will be forwarded to on the pods
+      port: 80  #service port or the port on which the service will listen ------> yaha service bole to actual application i.e. here is nginx        
+      nodePort: 30000  #nodePort service Port
   selector:
     app: nginx    
    
