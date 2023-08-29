@@ -96,6 +96,27 @@ spec:
 
 ```yml
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx 
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: nginx
+    spec:
+      - containers:
+          - name: nginx-container
+            image: nginx:latest
+            ports:
+              - containerPort: 80
+                protocol: "TCP"
 
    
 ```            
