@@ -56,9 +56,9 @@ person: # Dictionary
 apiVersion: v1 # String
 kind: Pod # String
 metadata: # Dictionary
-  name: demo-app
+  name: demo-pod
   labels: # Dictionary
-    app: demo-app
+    app: demoApp
 spec: # Dictionary
   containers: # List
     - name: nginx
@@ -78,12 +78,12 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: demoapp
+      app: demoApp
   template:
     metadata: # Dictionary
       name: demo-pod
       labels: # Dictionary
-        app: demo-app
+        app: demoApp
     spec: # Dictionary
       containers: # List
         - name: nginx
@@ -95,26 +95,9 @@ spec:
 ## Sample Deployment Template for Reference
 
 ```yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: demo-deployment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: demoapp
-  template:
-    metadata:
-      name: demo-pod
-      labels:
-        app: demo-app 
-    spec: 
-      containers:
-        - name: nginx
-          image: nginx
-          ports:
-            - containerPort: 80    
+
+
+   
 ```            
 
 ## Sample Service Template for Reference
