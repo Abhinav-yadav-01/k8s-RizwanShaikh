@@ -104,12 +104,12 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx 
+      app: nginxApp
   template:
     metadata:
       name: nginx-pod
       labels:
-        app: nginx
+        app: nginxApp
     spec:
       - containers:
           - name: nginx-container
