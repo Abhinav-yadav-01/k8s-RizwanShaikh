@@ -1,11 +1,9 @@
-# Deployment
+# Deployment -------> It consists of #Pod and #Replica-set both.....
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deploy
-  labels: 
-    app: nginx
 spec: 
   replicas: 3
   selector:
@@ -18,12 +16,14 @@ spec:
         app: nginx
     spec:
       - containers:
-          - name: nginx- container
-            image: nginx
+          - name: nginx-container
+            image: nginx:latest
             ports:
               - containerPort: 80
                 protocol: "TCP"
 
+
+---
 
 
 # NodePort Service
